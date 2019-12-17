@@ -1,0 +1,7 @@
+{% extends "blogs/header.html" %}
+{% block content %}  
+  <h3>{{blog.title}}</h3>
+  <p>{{blog.date}}</p><p>{{blog.author.first_name}} {{blog.last_name}}</p>
+  <br>
+  <p>{{blog.body}}</p>
+{% endblock %}

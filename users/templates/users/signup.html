@@ -1,0 +1,20 @@
+{% extends "blogs/header.html" %}
+{% block content %}  
+  {% if registered == 1 %}
+    <h2>Username already exists!</h2>
+  {% elif registered == 2 %}
+    <h2>Successfully registered!</h2>
+  {% else %}
+    <h3>Please register here!</h3>
+    <p>Fill out the details below and submit to register.</p>
+    <form method="POST" action="{% url 'users:register' %}">
+      {% csrf_token %}
+      <label>First Name : </label><input type="text" name="firstname" placeholder="First Name">
+      <label>Last Name : </label><input type="text" name="lastname" placeholder="Last Name">
+      <label>e-mail : </label><input type="text" name="email" placeholder="e-mail">
+      <label>Username : </label><input type="text" name="username" placeholder="Username">
+      <label>Password : </label><input type="password" name="password" placeholder="Password">
+      <input type="submit" value="Register">
+    </form>
+  {% endif %}
+{% endblock %}

@@ -1,7 +1,6 @@
 {% extends "blogs/header.html" %}
 {% block content %}  
-  <h3>Most recent blogs</h3>
-  <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+  <h3>All blogs</h3>
   <table class="table">
     <tbody>
       <tr>
@@ -9,7 +8,7 @@
         <th>Title</th>
         <th>Author</th>
       </tr>
-      {% for blog in recent_blogs %}
+      {% for blog in blogs %}
         <tr>
           <td>{{ blog.date }}</td>
           <td><a href="/blogs/{{blog.id}}">{{ blog.title }}</a></td>
