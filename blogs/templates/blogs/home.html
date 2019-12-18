@@ -1,7 +1,10 @@
 {% extends "blogs/header.html" %}
 {% block content %}  
+  {% if user.is_authenticated %}
+      <h5>Hi {{user.username}} !!</h5>
+      <a class="btn btn-default" href="{% url 'blogs:create_blog' %}">Create new blog</a>
+  {% endif %}
   <h3>Most recent blogs</h3>
-  <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
   <table class="table">
     <tbody>
       <tr>

@@ -1,0 +1,16 @@
+{% extends "blogs/header.html" %}
+{% block content %}  
+  {% if created %}
+    <h3>Blog created successfully!!</h3>
+  {% else %}
+    <h3>Create new blog!</h3>
+    <form method="POST" action="{% url 'blogs:create_blog' %}" id="blog_create">
+      {% csrf_token %}
+      <label>Title :</label><br>
+      <input type="text" name="title" placeholder="title"><br>
+      <label>Body :</label><br>
+      <textarea form="blog_create" name="body"></textarea>
+      <input type="submit" value="Create"> 
+    </form>  
+  {% endif %}
+{% endblock %}

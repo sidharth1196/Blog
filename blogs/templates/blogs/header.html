@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Blogger</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -21,7 +21,11 @@
     </ul>
 	<ul class="nav navbar-nav navbar-right">
       <li><a href="{% url 'users:register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      {% if user.is_authenticated %}
+        <li><a href="{% url 'users:logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      {% else %}
+        <li><a href="{% url 'users:login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      {% endif %}
     </ul>
   </div>
 </nav>

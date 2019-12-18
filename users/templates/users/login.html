@@ -1,0 +1,11 @@
+{% extends "blogs/header.html" %}
+{% block content %}  
+  <h3>Please register here!</h3>
+  <p>Fill out the details below and submit to register.</p>
+  <form method="POST" action="{% url 'users:login' %}">
+    {% csrf_token %}
+    <label>Username : </label><input type="text" name="username" placeholder="Username"><br>
+    <label>Password : </label><input type="password" name="password" placeholder="Password"><br>
+    <input type="submit" value="Login">
+  </form>
+{% endblock %}
